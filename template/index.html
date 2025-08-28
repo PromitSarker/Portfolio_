@@ -684,9 +684,9 @@
       }
 
       // Handle contact form submission
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
           e.preventDefault();
 
           const formData = {
@@ -709,7 +709,7 @@
             })
             .then((data) => {
               alert("Message sent successfully!");
-              document.getElementById("contact-form").reset();
+              contactForm.reset();
             })
             .catch((error) => {
               console.error("Error:", error);
@@ -718,6 +718,7 @@
               );
             });
         });
+      }
 
       // Load initial data
       document.addEventListener("DOMContentLoaded", () => {

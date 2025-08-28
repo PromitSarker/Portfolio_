@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$-7nmp!r&cmjm5eh7a)hdh!#6p=7)$#xyd6pwsuk(s@j02o)d&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["portfolio-promit.onrender.com"]
+ALLOWED_HOSTS = ["portfolio-promit.onrender.com", '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -36,11 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  # Uncomment this
     'template',
     'core',
     'rest_framework',
-    
 ]
 
 MIDDLEWARE = [
@@ -58,7 +57,9 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'template'],
+        'DIRS': [
+            BASE_DIR / 'template',  # Changed from 'template/'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,8 +134,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
