@@ -1,432 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promit Sarker | AI Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        dark: {
-                            900: '#0a0a0a',
-                            800: '#1a1a1a',
-                            700: '#2a2a2a',
-                            600: '#3a3a3a',
-                        },
-                        accent: '#3b82f6',
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              dark: {
+                900: "#0a0a0a",
+                800: "#1a1a1a",
+                700: "#2a2a2a",
+                600: "#3a3a3a",
+              },
+              accent: "#3b82f6",
+            },
+          },
+        },
+      };
     </script>
     <style>
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #3a3a3a;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-card {
+        transition: all 0.3s ease;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #3a3a3a;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
     </style>
-</head>
-<body class="bg-dark-900 text-gray-200 min-h-screen font-sans">
-    <header class="sticky top-0 z-50 bg-dark-800/90 backdrop-blur-sm border-b border-dark-700">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-accent">Promit Sarker</a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-accent transition">About</a>
-                <a href="#projects" class="hover:text-accent transition">Projects</a>
-                <a href="#blog" class="hover:text-accent transition">Blog</a>
-                <a href="#contact" class="hover:text-accent transition">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-gray-300">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+  </head>
+  <body class="bg-dark-900 text-gray-200 min-h-screen font-sans">
+    <header
+      class="sticky top-0 z-50 bg-dark-800/90 backdrop-blur-sm border-b border-dark-700"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-accent"> Promit </a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#about" class="hover:text-accent transition">About</a>
+          <a href="#projects" class="hover:text-accent transition">Projects</a>
+          <a href="#blog" class="hover:text-accent transition">Blog</a>
+          <a href="#contact" class="hover:text-accent transition">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-gray-300">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-dark-800 px-4 py-2 border-t border-dark-700"
+      >
+        <div class="flex flex-col space-y-3">
+          <a href="#about" class="hover:text-accent transition py-2">About</a>
+          <a href="#projects" class="hover:text-accent transition py-2"
+            >Projects</a
+          >
+          <a href="#blog" class="hover:text-accent transition py-2">Blog</a>
+          <a href="#contact" class="hover:text-accent transition py-2"
+            >Contact</a
+          >
         </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 px-4 py-2 border-t border-dark-700">
-            <div class="flex flex-col space-y-3">
-                <a href="#about" class="hover:text-accent transition py-2">About</a>
-                <a href="#projects" class="hover:text-accent transition py-2">Projects</a>
-                <a href="#blog" class="hover:text-accent transition py-2">Blog</a>
-                <a href="#contact" class="hover:text-accent transition py-2">Contact</a>
-            </div>
-        </div>
+      </div>
     </header>
 
     <main class="container mx-auto px-4 py-12">
-        <!-- Hero Section -->
-        <section id="about" class="min-h-[80vh] flex flex-col justify-center items-center text-center fade-in">
-            <div class="max-w-3xl mx-auto">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6">
-                    <span class="text-accent">Promit</span> Sarker
-                </h1>
-                <h2 class="text-2xl md:text-3xl font-medium mb-8 text-gray-400">AI Developer</h2>
-                <p class="text-lg md:text-xl mb-8 text-gray-400 leading-relaxed">
-                    Building intelligent systems that solve real-world problems. 
-                    Passionate about machine learning, deep learning, and creating AI solutions.
-                </p>
-                <div class="flex justify-center space-x-4">
-                    <a href="#projects" class="bg-accent hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
-                        View Projects
-                    </a>
-                    <a href="#contact" class="border border-accent text-accent hover:bg-dark-700 px-6 py-3 rounded-md transition">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-        </section>
+      <!-- Hero Section -->
+      <section
+        id="about"
+        class="min-h-[80vh] flex flex-col justify-center items-center text-center fade-in"
+      >
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            <span class="text-accent">Promit</span> Sarker
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-medium mb-8 text-gray-400">
+            AI Developer
+          </h2>
+          <p class="text-lg md:text-xl mb-8 text-gray-400 leading-relaxed">
+            A Linux enthusiast.
+            <br />
+            Passionate about Quantum Computing, Machine Learning, Deep Learning,
+            and Creating AI solutions.
+          </p>
+          <div class="flex justify-center space-x-4">
+            <a
+              href="#projects"
+              class="bg-accent hover:bg-blue-600 text-white px-6 py-3 rounded-md transition"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              class="border border-accent text-accent hover:bg-dark-700 px-6 py-3 rounded-md transition"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 fade-in">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">A selection of my recent work in AI and software development</p>
-            </div>
-            
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Projects will be loaded dynamically from API -->
-                <div class="text-center py-10">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
-                        <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
-                        <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
-                    </div>
-                </div>
-                <div class="text-center py-10">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
-                        <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
-                        <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
-                    </div>
-                </div>
-                <div class="text-center py-10 md:hidden lg:block">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
-                        <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
-                        <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" id="load-more-projects" class="inline-flex items-center text-accent hover:text-blue-400 transition">
-                    Load More Projects
-                    <i class="fas fa-arrow-down ml-2"></i>
-                </a>
-            </div>
-        </section>
+      <!-- Experience Section -->
+      <section id="experience" class="py-20 fade-in">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            My journey and contributions over the years
+          </p>
+        </div>
 
-        <!-- Blog Section -->
-        <section id="blog" class="py-20 fade-in">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Latest Posts</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Thoughts and insights on AI, technology, and development</p>
-            </div>
-            
-            <div id="blog-posts-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Blog posts will be loaded dynamically from API -->
-                <div class="text-center py-10">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
-                        <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
-                        <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
-                    </div>
-                </div>
-                <div class="text-center py-10">
-                    <div class="animate-pulse flex flex-col items-center">
-                        <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
-                        <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
-                        <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" id="view-all-posts" class="inline-flex items-center text-accent hover:text-blue-400 transition">
-                    View All Blog Posts
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </section>
+        <div class="relative border-l border-dark-700 max-w-3xl mx-auto">
+          <!-- Timeline Item -->
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-accent rounded-full ring-8 ring-dark-900"
+            ></span>
+            <h3 class="text-xl font-semibold">AI Developer</h3>
+            <h4 class="text-xl font-semibold" style="color: #b0b0b0">
+              SM Technology
+            </h4>
+            <time class="block text-sm text-gray-400 mb-2"
+              >May, 2025 – Present</time
+            >
+            <p class="text-gray-400">
+              Engaged in AI initiatives, including chatbot development, LLM
+              analysis, and custom AI solutions, with successful projects
+              leveraging MCP, RAG, AI agents, and other advanced technologies.
+            </p>
+          </div>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 fade-in">
-            <div class="max-w-4xl mx-auto bg-dark-800 rounded-xl p-8 md:p-12 shadow-lg">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">Have a project in mind or want to collaborate? Feel free to reach out.</p>
-                </div>
-                
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-gray-400 mb-2">Name</label>
-                            <input type="text" id="name" name="name" 
-                                   class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
-                                   required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-400 mb-2">Email</label>
-                            <input type="email" id="email" name="email" 
-                                   class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
-                                   required>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="subject" class="block text-gray-400 mb-2">Subject</label>
-                        <input type="text" id="subject" name="subject" 
-                               class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
-                               required>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-400 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5"
-                                  class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
-                                  required></textarea>
-                    </div>
-                    <div class="pt-4">
-                        <button type="submit" 
-                                class="w-full bg-accent hover:bg-blue-600 text-white px-6 py-4 rounded-md transition font-medium">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-                
-                <div class="mt-12 pt-8 border-t border-dark-700">
-                    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12">
-                        <a href="#" class="flex items-center text-gray-400 hover:text-accent transition">
-                            <i class="fas fa-envelope mr-3 text-xl"></i>
-                            <span>promit@example.com</span>
-                        </a>
-                        <a href="#" class="flex items-center text-gray-400 hover:text-accent transition">
-                            <i class="fab fa-github mr-3 text-xl"></i>
-                            <span>github.com/promit</span>
-                        </a>
-                        <a href="#" class="flex items-center text-gray-400 hover:text-accent transition">
-                            <i class="fab fa-linkedin mr-3 text-xl"></i>
-                            <span>linkedin.com/in/promit</span>
-                        </a>
-                    </div>
-                </div>
+          <!-- Timeline Item -->
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-accent rounded-full ring-8 ring-dark-900"
+            ></span>
+            <h3 class="text-xl font-semibold">Software Developer</h3>
+            <h4 class="text-xl font-semibold" style="color: #b0b0b0">
+              Raim Homoeo Laboratory
+            </h4>
+            <time class="block text-sm text-gray-400 mb-2"
+              >July, 2023 – July, 2024</time
+            >
+            <p class="text-gray-400">
+              Helped developing an in-house medicine and stock inventory system
+              that streamlined supply tracking and enabled real-time supply
+              chain insights for better decision-making.
+            </p>
+          </div>
+
+          <!-- Timeline Item -->
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-accent rounded-full ring-8 ring-dark-900"
+            ></span>
+            <h3 class="text-xl font-semibold">Research Assistant</h3>
+            <h4 class="text-xl font-semibold" style="color: #b0b0b0">
+              NSU HCI Design Inclusion and Access Lab
+            </h4>
+            <time class="block text-sm text-gray-400 mb-2"
+              >February, 2023 – June, 2023</time
+            >
+            <p class="text-gray-400">
+              Served as a Research Assistant at HCI DIAL, contributing to HCI
+              projects, conducting user studies, and helping develop a wearable
+              health-monitoring device to support low-income communities.
+            </p>
+          </div>
+          <!-- Timeline Item -->
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-accent rounded-full ring-8 ring-dark-900"
+            ></span>
+            <h3 class="text-xl font-semibold">Co-Owner</h3>
+            <h4 class="text-xl font-semibold" style="color: #b0b0b0">
+              Manabu Bookstore
+            </h4>
+            <time class="block text-sm text-gray-400 mb-2">2020 – 2022</time>
+            <p class="text-gray-400">
+              We began with a mission to offer quality books at affordable
+              prices, staying profitable in the competitive online market. Now,
+              while on a break, we’re planning an offline book café with a warm
+              atmosphere and accessible reads.
+            </p>
+          </div>
+
+          <!-- Timeline Item -->
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-accent rounded-full ring-8 ring-dark-900"
+            ></span>
+            <h3 class="text-xl font-semibold">President</h3>
+            <h4 class="text-xl font-semibold" style="color: #b0b0b0">
+              Notre Dame Science Club
+            </h4>
+            <time class="block text-sm text-gray-400 mb-2">2018 – 2019</time>
+            <p class="text-gray-400">
+              Organized an inter-college science fair and cultural festival that
+              showcased student projects and performances, fostering diversity
+              and learning with positive feedback.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20 fade-in">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            A selection of my recent work in AI and software development
+          </p>
+        </div>
+
+        <div
+          id="projects-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Projects will be loaded dynamically from API -->
+          <div class="text-center py-10">
+            <div class="animate-pulse flex flex-col items-center">
+              <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
+              <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
+              <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
             </div>
-        </section>
+          </div>
+          <div class="text-center py-10">
+            <div class="animate-pulse flex flex-col items-center">
+              <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
+              <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
+              <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
+            </div>
+          </div>
+          <div class="text-center py-10 md:hidden lg:block">
+            <div class="animate-pulse flex flex-col items-center">
+              <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
+              <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
+              <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="https://github.com/PromitSarker"
+            id="load-more-projects"
+            class="inline-flex items-center text-accent hover:text-blue-400 transition"
+          >
+            See my works on GitHub
+          </a>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="py-20 fade-in">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Latest Posts</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Thoughts and insights on AI, technology, and development
+          </p>
+        </div>
+
+        <div
+          id="blog-posts-container"
+          class="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          <!-- Blog posts will be loaded dynamically from API -->
+          <div class="text-center py-10">
+            <div class="animate-pulse flex flex-col items-center">
+              <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
+              <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
+              <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
+            </div>
+          </div>
+          <div class="text-center py-10">
+            <div class="animate-pulse flex flex-col items-center">
+              <div class="h-4 w-48 bg-dark-700 rounded mb-4"></div>
+              <div class="h-3 w-32 bg-dark-700 rounded mb-8"></div>
+              <div class="h-64 w-full bg-dark-800 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="https://medium.com/@promitsrkr"
+            id="view-all-posts"
+            class="inline-flex items-center text-accent hover:text-blue-400 transition"
+          >
+            View All Blog Posts
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <!-- <section id="contact" class="py-20 fade-in">
+        <div
+          class="max-w-4xl mx-auto bg-dark-800 rounded-xl p-8 md:p-12 shadow-lg"
+        >
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+              Have a project in mind or want to collaborate? Feel free to reach
+              out.
+            </p>
+          </div>
+
+          <form id="contact-form" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-gray-400 mb-2">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-gray-400 mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-gray-400 mb-2"
+                >Subject</label
+              >
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                required
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-gray-400 mb-2"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                class="w-full bg-dark-700 border border-dark-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition"
+                required
+              ></textarea>
+            </div>
+            <div class="pt-4">
+              <button
+                type="submit"
+                class="w-full bg-accent hover:bg-blue-600 text-white px-6 py-4 rounded-md transition font-medium"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-12 pt-8 border-t border-dark-700">
+            <div
+              class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12"
+            >
+              <a
+                href="mailto:promitsrkr@gmail.com"
+                class="flex items-center text-gray-400 hover:text-accent transition"
+              >
+                <i class="fas fa-envelope mr-3 text-xl"></i>
+                <span>Gmail</span>
+              </a>
+              <a
+                href="https://github.com/PromitSarker"
+                target="_blank"
+                class="flex items-center text-gray-400 hover:text-accent transition"
+              >
+                <i class="fab fa-github mr-3 text-xl"></i>
+                <span>Github</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/promitsarker"
+                target="_blank"
+                class="flex items-center text-gray-400 hover:text-accent transition"
+              >
+                <i class="fab fa-linkedin mr-3 text-xl"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div> -->
+      <!-- </section> -->
     </main>
 
     <footer class="bg-dark-800 py-8 border-t border-dark-700">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-gray-400">&copy; <span id="current-year"></span> Promit Sarker. All rights reserved.</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-accent transition">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-accent transition">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-accent transition">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-accent transition">
-                        <i class="fab fa-medium text-xl"></i>
-                    </a>
-                </div>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-gray-400">
+              &copy; <span id="current-year"></span> Promit Sarker. All rights
+              reserved.
+            </p>
+          </div>
+          <div class="flex space-x-6">
+            <!-- GitHub -->
+            <a
+              href="https://github.com/PromitSarker"
+              target="_blank"
+              class="text-gray-400 hover:text-accent transition"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/promitsarker"
+              target="_blank"
+              class="text-gray-400 hover:text-accent transition"
+            >
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+
+            <!-- Medium -->
+            <a
+              href="https://medium.com/@promitsrkr"
+              target="_blank"
+              class="text-gray-400 hover:text-accent transition"
+            >
+              <i class="fab fa-medium text-xl"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script>
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // API endpoints (replace with your actual Django DRF endpoints)
-        const API_ENDPOINTS = {
-            projects: '/api/projects/',
-            blogPosts: '/api/blog/posts/',
-            contact: '/api/contact/'
-        };
-        
-        // Mock data for demonstration
-        // In your actual implementation, you'll fetch this from your Django backend
-        const MOCK_PROJECTS = [
-            {
-                id: 1,
-                title: "AI-Powered Recommendation System",
-                description: "A machine learning model that provides personalized recommendations based on user behavior.",
-                tags: ["Python", "TensorFlow", "Flask"],
-                imageUrl: "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=AI+Recommendation"
-            },
-            {
-                id: 2,
-                title: "Computer Vision for Medical Imaging",
-                description: "Deep learning model to assist in early detection of medical conditions from X-ray images.",
-                tags: ["Python", "PyTorch", "OpenCV"],
-                imageUrl: "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=Medical+AI"
-            },
-            {
-                id: 3,
-                title: "Natural Language Processing API",
-                description: "REST API for text processing including sentiment analysis, entity recognition and summarization.",
-                tags: ["Python", "Django", "DRF", "NLTK"],
-                imageUrl: "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=NLP+API"
-            }
-        ];
-        
-        const MOCK_BLOG_POSTS = [
-            {
-                id: 1,
-                title: "The Future of AI in Healthcare",
-                excerpt: "Exploring how artificial intelligence is transforming diagnostics and patient care.",
-                date: "June 15, 2023",
-                imageUrl: "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=AI+Healthcare"
-            },
-            {
-                id: 2,
-                title: "Building Scalable Machine Learning Pipelines",
-                excerpt: "Best practices for creating ML systems that can handle growing data and user demands.",
-                date: "May 22, 2023",
-                imageUrl: "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=ML+Pipelines"
-            }
-        ];
-        
-        // Load projects from API
-        function loadProjects() {
-    // In a real implementation, you would fetch from your Django API:
-    fetch(API_ENDPOINTS.projects)
-        .then(response => response.json())
-        .then(data => renderProjects(data))
-        .catch(error => console.error('Error loading projects:', error));
-    
-    // For now, we'll use mock data
-    // setTimeout(() => {
-    //     renderProjects(MOCK_PROJECTS);
-    // }, 800);
-}
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
 
-        
-        function renderProjects(projects) {
-            const container = document.getElementById('projects-container');
-            container.innerHTML = '';
-            
-            projects.forEach(project => {
-                const projectElement = document.createElement('div');
-                projectElement.className = 'project-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700';
-                projectElement.innerHTML = `
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // API endpoints (replace with your actual Django DRF endpoints)
+      const API_ENDPOINTS = {
+        projects: "/api/projects/",
+        blog: "/api/blog/",
+        contact: "/api/contact/",
+      };
+
+      // Mock data for demonstration
+      // In your actual implementation, you'll fetch this from your Django backend
+      const MOCK_PROJECTS = [
+        {
+          id: 1,
+          title: "AI-Powered Recommendation System",
+          description:
+            "A machine learning model that provides personalized recommendations based on user behavior.",
+          tags: ["Python", "TensorFlow", "Flask"],
+          imageUrl:
+            "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=AI+Recommendation",
+        },
+        {
+          id: 2,
+          title: "Computer Vision for Medical Imaging",
+          description:
+            "Deep learning model to assist in early detection of medical conditions from X-ray images.",
+          tags: ["Python", "PyTorch", "OpenCV"],
+          imageUrl:
+            "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=Medical+AI",
+        },
+        {
+          id: 3,
+          title: "Natural Language Processing API",
+          description:
+            "REST API for text processing including sentiment analysis, entity recognition and summarization.",
+          tags: ["Python", "Django", "DRF", "NLTK"],
+          imageUrl:
+            "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=NLP+API",
+        },
+      ];
+
+      const MOCK_BLOG_POSTS = [
+        {
+          id: 1,
+          title: "The Future of AI in Healthcare",
+          excerpt:
+            "Exploring how artificial intelligence is transforming diagnostics and patient care.",
+          date: "June 15, 2023",
+          imageUrl:
+            "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=AI+Healthcare",
+        },
+        {
+          id: 2,
+          title: "Building Scalable Machine Learning Pipelines",
+          excerpt:
+            "Best practices for creating ML systems that can handle growing data and user demands.",
+          date: "May 22, 2023",
+          imageUrl:
+            "https://via.placeholder.com/600x400/1a1a1a/3b82f6?text=ML+Pipelines",
+        },
+      ];
+
+      // Load projects from API
+      function loadProjects() {
+        // In a real implementation, you would fetch from your Django API:
+        fetch(API_ENDPOINTS.projects)
+          .then((response) => response.json())
+          .then((data) => renderProjects(data))
+          .catch((error) => console.error("Error loading projects:", error));
+
+        // For now, we'll use mock data
+        // setTimeout(() => {
+        //     renderProjects(MOCK_PROJECTS);
+        // }, 800);
+      }
+
+      function renderProjects(projects) {
+        const container = document.getElementById("projects-container");
+        container.innerHTML = "";
+
+        projects.forEach((project) => {
+          const projectElement = document.createElement("div");
+          projectElement.className =
+            "project-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 relative";
+          projectElement.innerHTML = `
+      <div class="h-64 bg-dark-700 overflow-hidden">
+        <img src="${project.imageUrl}" alt="${
+            project.title
+          }" class="w-full h-full object-cover">
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-2">${project.title}</h3>
+        <p class="text-gray-400 mb-4">${project.description}</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          ${project.tags
+            .map(
+              (tag) =>
+                `<span class="text-xs bg-dark-700 text-accent px-3 py-1 rounded-full">${tag}</span>`
+            )
+            .join("")}
+        </div>
+        <a href="${
+          project.url
+        }" target="_blank" class="absolute bottom-4 right-4 bg-dark-700 text-accent px-3 py-2 rounded-full flex items-center gap-2 hover:bg-accent hover:text-white transition">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    `;
+          container.appendChild(projectElement);
+        });
+      }
+
+      // Load blog posts from API
+      function loadBlogPosts() {
+        // In a real implementation:
+        fetch(API_ENDPOINTS.blog)
+          .then((response) => response.json())
+          .then((data) => renderBlogPosts(data))
+          .catch((error) => console.error("Error loading blog posts:", error));
+
+        // Using mock data for now
+        // setTimeout(() => {
+        //     renderBlogPosts(MOCK_BLOG_POSTS);
+        // }, 800);
+      }
+
+      function renderBlogPosts(posts) {
+        const container = document.getElementById("blog-posts-container");
+        container.innerHTML = "";
+
+        posts.forEach((post) => {
+          const postElement = document.createElement("div");
+          postElement.className =
+            "bg-dark-800 rounded-xl overflow-hidden border border-dark-700 hover:border-accent/30 transition";
+          postElement.innerHTML = `
                     <div class="h-64 bg-dark-700 overflow-hidden">
-                        <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-full object-cover">
+                        <img src="${post.imageUrl}" alt="${
+            post.title
+          }" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">${project.title}</h3>
-                        <p class="text-gray-400 mb-4">${project.description}</p>
-                        <div class="flex flex-wrap gap-2">
-                            ${project.tags.map(tag => 
-                                `<span class="text-xs bg-dark-700 text-accent px-3 py-1 rounded-full">${tag}</span>`
-                            ).join('')}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(projectElement);
-            });
-        }
-        
-        // Load blog posts from API
-        function loadBlogPosts() {
-    // In a real implementation:
-    fetch(API_ENDPOINTS.blogPosts)
-        .then(response => response.json())
-        .then(data => renderBlogPosts(data))
-        .catch(error => console.error('Error loading blog posts:', error));
-    
-    // Using mock data for now
-    // setTimeout(() => {
-    //     renderBlogPosts(MOCK_BLOG_POSTS);
-    // }, 800);
-}
-
-        
-        function renderBlogPosts(posts) {
-            const container = document.getElementById('blog-posts-container');
-            container.innerHTML = '';
-            
-            posts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.className = 'bg-dark-800 rounded-xl overflow-hidden border border-dark-700 hover:border-accent/30 transition';
-                postElement.innerHTML = `
-                    <div class="h-64 bg-dark-700 overflow-hidden">
-                        <img src="${post.imageUrl}" alt="${post.title}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="text-gray-400 text-sm mb-2">${post.date}</div>
-                        <h3 class="text-xl font-semibold mb-3">${post.title}</h3>
-                        <p class="text-gray-400 mb-4">${post.excerpt.length > 150 ? post.excerpt.slice(0, 150) + '...' : post.excerpt}</p>
-                        <a href="${post.url}" target="_blank" class="text-accent hover:text-blue-400 transition flex items-center">
+                        <div class="text-gray-400 text-sm mb-2">${
+                          post.date
+                        }</div>
+                        <h3 class="text-xl font-semibold mb-3">${
+                          post.title
+                        }</h3>
+                        <p class="text-gray-400 mb-4">${
+                          post.excerpt.length > 150
+                            ? post.excerpt.slice(0, 150) + "..."
+                            : post.excerpt
+                        }</p>
+                        <a href="${
+                          post.url
+                        }" target="_blank" class="text-accent hover:text-blue-400 transition flex items-center">
                         Read More
                         <i class="fas fa-arrow-right ml-2 text-sm"></i>
                     </a>
@@ -434,91 +679,76 @@
 
                     </div>
                 `;
-                container.appendChild(postElement);
-            });
-        }
-        
-        // Handle contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // In a real implementation, you would send this to your Django API:
-            // In a real implementation, you would send this to your Django API:
-            fetch(API_ENDPOINTS.contact, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Message sent successfully!');
-                document.getElementById('contact-form').reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error sending your message. Please try again.');
-            });
+          container.appendChild(postElement);
+        });
+      }
 
-// For now, we'll just show a success message
-// setTimeout(() => {
-//     alert('Message sent successfully! (This is a demo. In a real implementation, this would be sent to your Django backend)');
-//     document.getElementById('contact-form').reset();
-// }, 500);
+      // Handle contact form submission
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-            
-            // For now, we'll just show a success message
-            setTimeout(() => {
-                alert('Message sent successfully! (This is a demo. In a real implementation, this would be sent to your Django backend)');
-                document.getElementById('contact-form').reset();
-            }, 500);
-        });
-        
-        // Load initial data
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProjects();
-            loadBlogPosts();
-            
-            // Add intersection observer for fade-in animations
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElements.forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+          };
+
+          fetch("/api/contact/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              if (!response.ok) throw new Error("Network response was not ok");
+              return response.json();
+            })
+            .then((data) => {
+              alert("Message sent successfully!");
+              document.getElementById("contact-form").reset();
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert(
+                "There was an error sending your message. Please try again."
+              );
             });
         });
-        
-        // Load more projects handler
-        document.getElementById('load-more-projects').addEventListener('click', function(e) {
-            e.preventDefault();
-            // In a real implementation, you would fetch the next page of projects
-            alert('In a real implementation, this would load more projects from your Django API');
+
+      // Load initial data
+      document.addEventListener("DOMContentLoaded", () => {
+        loadProjects();
+        loadBlogPosts();
+
+        // Add intersection observer for fade-in animations
+        const fadeElements = document.querySelectorAll(".fade-in");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        fadeElements.forEach((el) => {
+          el.style.opacity = 0;
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
         });
-        
-        // View all posts handler
-        document.getElementById('view-all-posts').addEventListener('click', function(e) {
-            e.preventDefault();
-            // In a real implementation, you would navigate to a blog listing page
-            alert('In a real implementation, this would navigate to a full blog listing page');
-        });
+      });
+
+      // Load more projects handler
+
+      // View all posts handler
     </script>
-</body>
+  </body>
 </html>
